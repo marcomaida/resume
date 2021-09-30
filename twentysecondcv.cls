@@ -30,7 +30,7 @@
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
-\definecolor{maingray}{HTML}{B9B9B9}
+\definecolor{maingray}{HTML}{0E5484}
 
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
@@ -147,22 +147,17 @@
 		\end{tabular}
 
 		%------------------------------------------------
-		
-		\ifthenelse{\equal{\aboutme}{}}{}{
-			\profilesection{About me}
-			\begin{flushleft}
-				\aboutme
-			\end{flushleft}
-		}
 
+		\input{sidebar.tex}
+		
 		%------------------------------------------------
 
-		\profilesection{Skills}
+		%\profilesection{Skills}
 
-		\skills
-		\skillstext
-		\scriptsize
-		(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
+		%\skills
+		%\skillstext
+		%%scriptsize
+		%(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
 			
 		%------------------------------------------------
 			
