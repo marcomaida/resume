@@ -37,7 +37,7 @@
 %	 MISC CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\renewcommand{\bfseries}{\color{gray}} % Make \textbf produce coloured text instead
+%\renewcommand{\bfseries}{\color{gray}} % Make \textbf produce coloured text instead
 
 \pagestyle{empty} % Disable headers and footers
 
