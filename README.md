@@ -2,7 +2,7 @@
 
 <object data="https://github.com/marcomaida/resume/blob/master/main.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://github.com/marcomaida/resume/blob/master/main.pdf">
-        <p>Repo of <a href="https://github.com/marcomaida/resume/blob/master/main.pdf">my resume</a>.</p>
+        <p>Hello! Check out my resume <a href="https://github.com/marcomaida/resume/blob/master/main.pdf">here</a>.</p>
     </embed>
 </object>
 
