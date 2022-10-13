@@ -235,6 +235,14 @@
 		#4\vspace{\parsep}%
 	}\\
 }
+\newcommand{\twentyitemsmall}[3]{%
+	#1&\parbox[t]{0.83\textwidth}{%
+		\textbf{#2}%
+		\hfill%
+		{\footnotesize#3}%
+		\vspace{2mm}
+	}\\
+}
 
 %----------------------------------------------------------------------------------------
 %	 SMALL LIST ENVIRONMENT
