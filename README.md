@@ -5,5 +5,3 @@
         <p>Hello! Check out my resume <a href="https://github.com/marcomaida/resume/blob/master/main.pdf">here</a>.</p>
     </embed>
 </object>
-
-Many thanks to [Carmine Spagnuolo](https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex)

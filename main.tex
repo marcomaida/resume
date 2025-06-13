@@ -1,93 +1,144 @@
-\documentclass[letterpaper]{twentysecondcv} % Use a4paper for A4 format
+\documentclass[letterpaper]{article}
 
-\input{personal}
+\usepackage[sfdefault]{ClearSans}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage[left=1cm,top=1.5cm,right=1cm,bottom=0.2cm,nohead,nofoot]{geometry}
+\usepackage{pifont}
 
-\usepackage{pifont,xcolor}
-\newcommand{\yellowstar}{\textcolor{yellow}{\ding{72}}} % 72 = five-pointed star
+% Color definitions
+\definecolor{mainblue}{HTML}{0E5484}
+\definecolor{maingray}{HTML}{0E5484}
+\definecolor{gray}{HTML}{4D4D4D}
 
+% Formatting
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+% Section headers
+\newcounter{colorCounter}
+\newcommand{\sectioncolor}[1]{%
+  \colorbox{%
+    \ifodd\value{colorCounter}mainblue\else maingray\fi%
+  }{\textcolor{white}{\strut\hspace{6pt}#1\hspace{6pt}}}%
+  \stepcounter{colorCounter}%
+}
+\renewcommand{\section}[1]{%
+  \vspace{1.5em}
+  {\Large\sectioncolor{#1}}\par
+  \vspace{0.8em}
+}
+\renewcommand{\subsection}[1]{%
+  \vspace{0.8em}
+  {\large\color{gray} #1}\par
+  \vspace{0.4em}
+}
+
+\newenvironment{cv}{%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+}{%
+  \end{tabular*}
+}
+\newcommand{\cvitem}[4]{%
+  #1 & \parbox[t]{0.88\textwidth}{\textbf{#2} \hfill {\footnotesize#3}\\ #4 \vspace{\parsep}} \\
+}
+
+% Custom yellow star
+\newcommand{\yellowstar}{\textcolor{yellow}{\ding{72}}}
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
+% Profile Header
+\begin{minipage}[t]{0.7\linewidth}
+  {\Huge\color{mainblue}Marco Maida}\\
+  {\Large\color{black!80}Tech Lead, Inference Performance}\\
+  \vspace{4pt}
+  \textsc{\href{https://www.maida.me}{https://www.maida.me}} \quad \textsc{\href{mailto:mmmaidacs@gmail.com}{mmmaidacs@gmail.com}}
+\end{minipage}
 
-\makeprofile
+\vspace{.5cm}
 
-With over \textbf{ten years of professional experience}, I specialize in designing and implementing systems that tackle complex problems at scale. My expertise spans both research and engineering, with a strong foundation in \textbf{C++}, \textbf{Rust}, \textbf{C}, \textbf{Python}, \textbf{C\#}, and \textbf{Coq}. 
-Currently based in \textbf{London}, I work as a \textbf{Tech Lead} at \textbf{Wayve}, leading the inference performance team for Wayve's autonomous vehicle stack.
+I’m a software engineer with over \textbf{ten years of experience} building systems that address complex, real-world problems. I worked in the fields of \textbf{industrial software}, \textbf{videogames}, \textbf{real-time systems},  \textbf{formal verification}, and \textbf{autonomous vehicles}.
+
+I’m currently based in \textbf{London}, where I lead the inference performance team at \textbf{Wayve}. We focus on improving the latency and reliability of Wayve’s self-driving stack. I work mainly in \textbf{C++}, \textbf{Rust}, and \textbf{Python}, and I’m particularly interested in problems where \textbf{performance}, \textbf{correctness}, and \textbf{practical constraints} come together.
 
 \vspace{.1cm}
 
 \section{Professional Experience}
 
-\begin{twenty} % Environment for a list with descriptions
-	\twentyitem{Since 2022}{Software Engineer -- Self-Driving Technologies}{Wayve Ltd}{ 
-		I designed, implemented, and maintained several key systems within Wayve's on-board software stack for autonomous vehicles. This includes sensor data collection, alignment, packaging, data upload, and real-time neural network inference. 
-		Since December 2024, I have been serving as the \textbf{Tech Lead} of the inference performance team, responsible for the core inference component. \textit{(ROS2, Linux Kernel, C++, Rust, Python)}.
-	}
-	\twentyitem{2016-2019}{Software Engineer -- Videogames}{34BigThings}{ 
-		I contributed to five major game titles, focusing on game infrastructure, AI, gameplay, and development tools. I worked on both single-player and online multiplayer games shipped on Steam, PS4, XboxOne, Switch, and mobile platforms. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
-	}
-	\twentyitem{2015-2016}{Software Engineer -- Videogames, Simulation}{Maserati, Choralia}{ 
-		I led two freelance B2B projects: developing an educational game for mobile and browsers, and collaborating to create a 3D visualization tool for product presentation. \textit{(Unity3D, C\#, JavaScript)}.
-	}
-	\twentyitem{2013-2016}{Software Engineer -- Industrial Software}{R.O. srl}{ 
-		I contributed to a suite of software solutions for glass processing factories, focusing on order tracking and optimizing machine work, product waste, and logistics. During my third year, I managed a team of 4 junior engineers. \textit{(C, C++, C\#, SQL)}.
-	}
-\end{twenty}
+\begin{cv}
+  \cvitem{Since 2022}{Software Engineer -- Autonomous Vehicles}{Wayve Ltd}{
+    I designed, implemented, and maintained several key systems within Wayve's on-board software stack for autonomous vehicles. This includes sensor data collection, alignment, packaging, data upload, and real-time neural network inference. 
+    Since December 2024, I have been serving as the \textbf{Tech Lead} of the inference performance team, responsible for the core inference component. \textit{(ROS2, Linux Kernel, C++, Rust, Python)}.
+  }
+  \cvitem{2016-2019}{Software Engineer -- Videogames}{34BigThings}{
+    I contributed to five major game titles, focusing on game infrastructure, AI, gameplay, and development tools. I worked on both single-player and online multiplayer games shipped on Steam, PS4, XboxOne, Switch, and mobile platforms. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
+  }
+  \cvitem{2015-2016}{Software Engineer -- Videogames, Simulation}{Maserati, Choralia}{
+    I led two freelance B2B projects: developing an educational game for mobile and browsers, and collaborating to create a 3D visualization tool for product presentation. \textit{(Unity3D, C\#, JavaScript)}.
+  }
+  \cvitem{2013-2016}{Software Engineer -- Industrial Software}{R.O. srl}{
+    I contributed to a suite of software solutions for glass processing factories, focusing on order tracking and optimizing machine work, product waste, and logistics. During my third year, I managed a team of 4 junior engineers. \textit{(C, C++, C\#, SQL)}.
+  }
+\end{cv}
 
 \section{Education and Research}
 
-\begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2022}{Research Internship}{Bloomberg LP}{ 
-		I worked on accelerating SAT solving using GPUs. \textit{(C++, CUDA)}.
-	}
-	\twentyitem{2019-2022}{PhD Student}{Max Planck Institute}{ 
-		My research focused on formal verification and real-time systems, specifically verifying the timeliness of software systems. I published three papers and mentored three interns. \textit{(COQ, C, Rust)}.
-	}
-	\twentyitem{2019-2022}{Master's in Computer Science}{Technische Universität Kaiserslautern}{ 
-		I specialized in real-time systems as part of a joint master's and PhD program.
-	}
-	\twentyitem{2016-2019}{Bachelor's in Computer Science}{Università degli Studi di Torino}{ 
-		I specialized in computability and formal methods.
-	}
-\end{twenty}
+\begin{cv}
+  \cvitem{2022}{Research Internship}{Bloomberg LP}{
+    I worked on accelerating SAT solving using GPUs. \textit{(C++, CUDA)}.
+  }
+  \cvitem{2019-2022}{PhD Student}{Max Planck Institute}{
+    My research focused on formal verification and real-time systems, specifically verifying the timeliness of software systems. I published three papers and mentored three interns. \textit{(COQ, C, Rust)}.
+  }
+  \cvitem{2019-2022}{Master's in Computer Science}{Technische Universität Kaiserslautern}{
+    I specialized in real-time systems as part of a joint master's and PhD program.
+  }
+  \cvitem{2016-2019}{Bachelor's in Computer Science}{Università degli Studi di Torino}{
+    I specialized in computability and formal methods.
+  }
+\end{cv}
 
 \subsection{Selected Publications}
 
-\begin{twenty} % Environment for a list with descriptions	
-	\twentyitem{2025}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{ 
-		\textit{\yellowstar \small  Journal publication in Transactions of Graphics. Selected for CAF trailer.}
-		\\We introduced Claycodes, a new type of visual code that breaks free from traditional rigid grids like QR codes. Claycodes encode data as a tree structure and allow full customizability and deformation, with real-time scanning capabilities.	
-		\scriptsize (\url{https://arxiv.org/abs/2505.08666})\normalfont.
-	}
-	\twentyitem{2022}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{ 
-		We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \scriptsize (\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})\normalfont.
-	}
-	\twentyitem{2021}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{ 
-		\textit{\yellowstar \small Outstanding Paper Award.}
-		\\I developed POET, a tool for formally verified worst-case scenario timing analysis. \scriptsize (\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})\normalfont.
-	}
-\end{twenty}
+\begin{cv}
+  \cvitem{2025}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
+    \textit{\yellowstar \small  Journal publication in Transactions of Graphics. Selected for CAF trailer.}
+    \\We introduced Claycodes, a new type of visual code that breaks free from traditional rigid grids like QR codes. Claycodes encode data as a tree structure and allow full customizability and deformation, with real-time scanning capabilities.	
+    \scriptsize (\url{https://arxiv.org/abs/2505.08666})\normalfont.
+  }
+  \cvitem{2022}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
+    We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \scriptsize (\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})\normalfont.
+  }
+  \cvitem{2021}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
+    \textit{\yellowstar\small Outstanding Paper Award.}
+    \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \scriptsize (\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})\normalfont.
+  }
+\end{cv}
 
 \vspace{100pt}
 \section{Selected Open-Source Projects}
 
-\begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2025}{Claycode}{\url{https://claycode.io}}{ 
-		Inventor and lead contributor. Claycode includes a generator website, an Android scanner app, and significant research code. 
-	}
-	\twentyitem{2020-2022}{PROSA}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/rt-proofs}}{ 
-		Main contributor to PROSA, one of the leading formally-verified frameworks in the real-time systems community.
-	}
-	\twentyitem{2022}{Treecode}{\url{www.maida.me/treecode}}{ 
-		The precursor to Claycode, a novel 2D scannable code that encodes messages as unique trees.
-	}
-	\twentyitem{2021}{POET}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/POET}}{ 
-		First-ever implementation of a foundational response-time analysis tool, created as part of my first academic publication.
-	}
-	\twentyitem{2018}{Fast Mobile Cycle (FMC) Framework and Toolkit}{\url{www.github.com/34OpenThings}}{ 
-		Developed a Unity3D framework that accelerates production-ready casual game creation, paired with a Python toolkit for bulk operations.
-	}
-\end{twenty}
+\begin{cv}
+  \cvitem{2025}{Claycode}{\url{https://claycode.io}}{
+    Inventor and lead contributor. Claycode includes a generator website, an Android scanner app, and a large amount of research code. 
+  }
+  \cvitem{2020-2022}{PROSA}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/rt-proofs}}{
+    Main contributor to PROSA, one of the leading formally-verified frameworks in the real-time systems community.
+  }
+  \cvitem{2022}{Treecode}{\url{www.maida.me/treecode}}{
+    The precursor to Claycode, a novel 2D scannable code that encodes messages as unique trees.
+  }
+  \cvitem{2021}{POET}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/POET}}{
+    First-ever implementation of a foundational response-time analysis tool, created as part of my first academic publication.
+  }
+  \cvitem{2018}{Fast Mobile Cycle (FMC) Framework and Toolkit}{\url{www.github.com/34OpenThings}}{
+    Developed a Unity3D framework that accelerates production-ready casual game creation, paired with a Python toolkit for bulk operations.
+  }
+\end{cv}
 
 \end{document}
