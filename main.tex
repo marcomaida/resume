@@ -61,11 +61,14 @@
 \newcommand{\cvtimelinedot}[1]{%
   \tikz[remember picture,baseline=-0.45ex]{\node[circle,fill=mainblue,inner sep=0pt,minimum size=4pt] (#1) {};}%
 }
+\newcommand{\cvroletext}[1]{%
+  {\linespread{1.06}\selectfont #1\par}%
+}
 \newcommand{\cvtimelinerole}[4]{%
   \parbox[t]{\textwidth}{%
     \cvtimelinedot{#1}\hspace{0.7em}\textbf{#3}\hspace{0.8em}{\footnotesize\color{black!55}#2}\\[-0.1em]
     \hspace*{1.15em}\begin{minipage}[t]{0.965\textwidth}
-      #4
+      \cvroletext{#4}
     \end{minipage}
     \vspace{0.65em}%
   } \\
@@ -73,7 +76,7 @@
 \newcommand{\cvrole}[3]{%
   \parbox[t]{\textwidth}{%
     \textbf{#2}\hspace{0.8em}{\footnotesize\color{black!55}#1}\\[-0.1em]
-    #3
+    \cvroletext{#3}
     \vspace{0.65em}%
   } \\
 }
