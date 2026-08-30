@@ -47,7 +47,7 @@
 }
 \newcommand{\cvitem}[4]{%
   \parbox[t]{\textwidth}{%
-    \textbf{#2}\hspace{0.8em}{\footnotesize\color{black!55}#1}%
+    \textbf{#2}\if\relax\detokenize{#1}\relax\else\hspace{0.8em}{\footnotesize\color{black!55}#1}\fi%
     \hfill{\footnotesize\color{gray}#3}\\[-0.1em]
     #4 \vspace{0.35em}%
   } \\
@@ -168,15 +168,15 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
 \subsection{Selected Publications}
 
 \begin{cv}
-  \cvitem{2025}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
+  \cvitem{}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
     \textit{\yellowstar \small  Journal publication in Transactions of Graphics. Selected for CAF trailer.}
     \\We introduced Claycodes, a new type of visual code that breaks free from traditional rigid grids like QR codes. Claycodes encode data as a tree structure and allow full customizability and deformation, with real-time scanning capabilities.	
     \par\mbox{\scriptsize(\url{https://arxiv.org/abs/2505.08666})}\normalfont.
   }
-  \cvitem{2022}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
+  \cvitem{}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
     We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \par\mbox{\scriptsize(\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})}\normalfont.
   }
-  \cvitem{2021}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
+  \cvitem{}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
     \textit{\yellowstar\small Outstanding Paper Award.}
     \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \par\mbox{\scriptsize(\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})}\normalfont.
   }
