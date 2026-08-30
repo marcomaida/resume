@@ -46,7 +46,7 @@
   \end{tabular*}
 }
 \newcommand{\cvitem}[4]{%
-  #1 & \parbox[t]{0.88\textwidth}{\textbf{#2} \hfill {\footnotesize#3}\\ #4 \vspace{\parsep}} \\
+  \parbox[t]{0.105\textwidth}{\footnotesize #1} & \parbox[t]{0.88\textwidth}{\textbf{#2} \hfill {\footnotesize#3}\\ #4 \vspace{\parsep}} \\
 }
 \newcommand{\cvcompany}[2]{%
   & \parbox[t]{0.88\textwidth}{%
@@ -55,7 +55,7 @@
   } \\
 }
 \newcommand{\cvrole}[3]{%
-  #1 & \parbox[t]{0.88\textwidth}{%
+  \parbox[t]{0.105\textwidth}{\footnotesize #1} & \parbox[t]{0.88\textwidth}{%
     \textcolor{mainblue}{\tiny\faCircle}\hspace{0.7em}\textbf{#2}\\[-0.1em]
     \hspace*{1.15em}\begin{minipage}[t]{0.845\textwidth}
       #3
@@ -91,31 +91,31 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
 
 \begin{cv}
   \cvcompany{Wayve Ltd}{London, United Kingdom}
-  \cvrole{2026--}{Senior Machine Learning Engineer}{
+  \cvrole{May 2026--\\Present}{Senior Machine Learning Engineer}{
     Co-design models and runtime architectures for real-time execution on resource-constrained automotive accelerators. Partition workloads across CPUs, GPUs, and NPUs; start model components as their sensor inputs become available; and maintain validation suites for numerical precision. Optimise end-to-end latency, throughput, and resource utilisation. \textit{(C++, Rust, Python)}.
   }
-  \cvrole{2024--2026}{Tech Lead, Inference Performance}{
+  \cvrole{Dec 2024--\\May 2026}{Tech Lead, Inference Performance}{
     Led a team of four responsible for Wayve's on-board inference stack. Extended the platform across multiple inference frameworks and accelerators while supporting the same execution path in every vehicle and simulation environment. Owned latency, reliability, and technical delivery for the core inference component. \textit{(C++, Rust, Python)}.
   }
-  \cvrole{2022--2024}{Senior Software Engineer}{
+  \cvrole{Dec 2022--\\Dec 2024}{Senior Software Engineer}{
     Joined a seven-person team building Wayve's second-generation on-board platform and shipping it to its first two vehicles. Built the initial real-time inference pipeline; Lidar, GNSS, and microphone stacks; data collection and upload features; and the vehicles' internal software network. \textit{(ROS2, Linux, C++, Rust, Python)}.
   }
   \cvcompanyend
 
   \cvcompany{34BigThings}{Turin, Italy}
-  \cvrole{2016--2019}{Software Engineer -- Videogames}{
+  \cvrole{Aug 2016--\\Sep 2019}{Software Engineer -- Videogames}{
     Shipped five single-player and online multiplayer titles across Steam, PS4, Xbox One, Nintendo Switch, and mobile. Developed game infrastructure, AI, gameplay systems, and production tools in Unity and Unreal Engine. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
   }
   \cvcompanyend
 
   \cvcompany{Maserati / Choralia}{Turin, Italy}
-  \cvrole{2015--2016}{Software Engineer -- Games and Simulation}{
+  \cvrole{Sep 2016--\\May 2017}{Software Engineer -- Games and Simulation}{
     Delivered two B2B projects: a browser and mobile educational game, and a 3D product-visualisation tool. Led implementation and supervised an external artist. \textit{(Unity3D, C\#, JavaScript)}.
   }
   \cvcompanyend
 
   \cvcompany{R.O. srl}{}
-  \cvrole{2013--2016}{Software Engineer -- Industrial Software}{
+  \cvrole{Jun 2013--\\Aug 2016}{Software Engineer -- Industrial Software}{
     Developed software for glass-processing factories covering order tracking, machine scheduling, waste reduction, and logistics. Managed four junior engineers during the third year. \textit{(C, C++, C\#, SQL)}.
   }
   \cvcompanyend
@@ -125,13 +125,13 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
 \section{Education and Research}
 
 \begin{cv}
-  \cvitem{2022}{Research Internship}{Bloomberg LP}{
+  \cvitem{Jun 2022--\\Aug 2022}{Research Internship}{Bloomberg LP}{
     I worked on accelerating SAT solving using GPUs. \textit{(C++, CUDA)}.
   }
-  \cvitem{2019-2022}{PhD Student}{Max Planck Institute}{
+  \cvitem{Sep 2019--\\Oct 2022}{PhD Student}{Max Planck Institute}{
     My research focused on formal verification and real-time systems, specifically verifying the timeliness of software systems. I published three papers and mentored three interns. \textit{(COQ, C, Rust)}.
   }
-  \cvitem{2019-2022}{Master's in Computer Science}{Technische Universität Kaiserslautern}{
+  \cvitem{Nov 2019--\\Jul 2022}{Master's in Computer Science}{Technische Universität Kaiserslautern}{
     I specialized in real-time systems as part of a joint master's and PhD program.
   }
   \cvitem{2016-2019}{Bachelor's in Computer Science}{Università degli Studi di Torino}{
