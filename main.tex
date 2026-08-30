@@ -53,11 +53,16 @@
 }{%
   \end{tabular}
 }
+\newcommand{\cvbody}[1]{%
+  \hspace*{1.4em}\begin{minipage}[t]{\dimexpr\textwidth-2.8em\relax}
+    #1
+  \end{minipage}%
+}
 \newcommand{\cvitem}[4]{%
   \parbox[t]{\textwidth}{%
     \textbf{#2}\if\relax\detokenize{#1}\relax\else\hspace{0.8em}{\footnotesize\color{black!55}#1}\fi%
     \hfill{\footnotesize\color{gray}#3}\\[-0.1em]
-    #4 \vspace{0.35em}%
+    \cvbody{#4}\vspace{0.35em}%
   } \\
 }
 \newcommand{\cvcompany}[2]{%
@@ -75,16 +80,14 @@
 \newcommand{\cvtimelinerole}[4]{%
   \parbox[t]{\textwidth}{%
     \cvtimelinedot{#1}\hspace{0.7em}\textbf{#3}\hspace{0.8em}{\footnotesize\color{black!55}#2}\\[-0.1em]
-    \hspace*{1.15em}\begin{minipage}[t]{0.965\textwidth}
-      \cvroletext{#4}
-    \end{minipage}
+    \cvbody{\cvroletext{#4}}
     \vspace{0.65em}%
   } \\
 }
 \newcommand{\cvrole}[3]{%
   \parbox[t]{\textwidth}{%
     \textbf{#2}\hspace{0.8em}{\footnotesize\color{black!55}#1}\\[-0.1em]
-    \cvroletext{#3}
+    \cvbody{\cvroletext{#3}}
     \vspace{0.65em}%
   } \\
 }
