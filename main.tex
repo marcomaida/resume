@@ -57,12 +57,19 @@
 \newcommand{\cvtimelinedot}[1]{%
   \tikz[remember picture,baseline=-0.45ex]{\node[circle,fill=mainblue,inner sep=0pt,minimum size=4pt] (#1) {};}%
 }
-\newcommand{\cvrole}[4][\textcolor{mainblue}{\tiny\faCircle}]{%
+\newcommand{\cvtimelinerole}[4]{%
   \parbox[t]{0.105\textwidth}{\footnotesize\color{black!55} #2} & \parbox[t]{0.88\textwidth}{%
-    #1\hspace{0.7em}\textbf{#3}\\[-0.1em]
+    \cvtimelinedot{#1}\hspace{0.7em}\textbf{#3}\\[-0.1em]
     \hspace*{1.15em}\begin{minipage}[t]{0.845\textwidth}
       #4
     \end{minipage}
+    \vspace{0.65em}%
+  } \\
+}
+\newcommand{\cvrole}[3]{%
+  \parbox[t]{0.105\textwidth}{\footnotesize\color{black!55} #1} & \parbox[t]{0.88\textwidth}{%
+    \textbf{#2}\\[-0.1em]
+    #3
     \vspace{0.65em}%
   } \\
 }
@@ -99,13 +106,13 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
 
 \begin{cv}
   \cvcompany{Wayve Ltd}{London, United Kingdom}
-  \cvrole[\cvtimelinedot{wayve-role-1}]{\daterange{May 2026}{Present}}{Senior Machine Learning Engineer}{
+  \cvtimelinerole{wayve-role-1}{\daterange{May 2026}{Present}}{Senior Machine Learning Engineer}{
     Co-design models and runtime architectures for real-time execution on resource-constrained automotive accelerators. Partition workloads across CPUs, GPUs, and NPUs; start model components as their sensor inputs become available; and maintain validation suites for numerical precision. Optimise end-to-end latency, throughput, and resource utilisation. \textit{(C++, Python)}.
   }
-  \cvrole[\cvtimelinedot{wayve-role-2}]{\daterange{Dec 2024}{May 2026}}{Tech Lead, Inference Performance}{
+  \cvtimelinerole{wayve-role-2}{\daterange{Dec 2024}{May 2026}}{Tech Lead, Inference Performance}{
     Led a team of four responsible for Wayve's on-board inference stack. Extended the platform across multiple inference frameworks and accelerators while supporting the same execution path in every vehicle and simulation environment. Owned latency, reliability, and technical delivery for the core inference component. \textit{(C++, Rust, Python)}.
   }
-  \cvrole[\cvtimelinedot{wayve-role-3}]{\daterange{Dec 2022}{Dec 2024}}{Senior Software Engineer}{
+  \cvtimelinerole{wayve-role-3}{\daterange{Dec 2022}{Dec 2024}}{Senior Software Engineer}{
     Joined a seven-person team building Wayve's second-generation on-board platform and shipping it to its first two vehicles. Built the initial real-time inference pipeline; Lidar, GNSS, and microphone stacks; data collection and upload features; and the vehicles' internal software network. \textit{(ROS2, Linux, C++, Rust, Python)}.
   }
   \cvcompanyend
@@ -129,7 +136,7 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
   \cvcompanyend
 \end{cv}
 \begin{tikzpicture}[remember picture,overlay]
-  \draw[mainblue,line width=0.5pt]
+  \draw[black!35,line width=0.5pt]
     (wayve-role-1.center) -- (wayve-role-2.center) -- (wayve-role-3.center);
 \end{tikzpicture}
 
