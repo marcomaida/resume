@@ -16,6 +16,14 @@
 \definecolor{maingray}{HTML}{0E5484}
 \definecolor{gray}{HTML}{4D4D4D}
 
+% Blue, underlined hyperlinks without annotation boxes
+\hypersetup{
+  colorlinks=false,
+  pdfborderstyle={/S/U/W 0.8},
+  urlbordercolor=mainblue
+}
+\renewcommand{\UrlFont}{\color{mainblue}\ttfamily}
+
 % Formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -95,8 +103,8 @@
   {\Huge\color{mainblue}Marco Maida}\\
   {\Large\color{black!80}Senior Machine Learning Engineer}\\
   \vspace{4pt}
-  \faGlobe~\href{https://www.maida.me}{\texttt{maida.me}} \quad
-  \faEnvelope~\href{mailto:mmmaidacs@gmail.com}{\texttt{mmmaidacs@gmail.com}}
+  \faGlobe~\href{https://www.maida.me}{\textcolor{mainblue}{\texttt{maida.me}}} \quad
+  \faEnvelope~\href{mailto:mmmaidacs@gmail.com}{\textcolor{mainblue}{\texttt{mmmaidacs@gmail.com}}}
 \end{minipage}
 
 \vspace{.5cm}
