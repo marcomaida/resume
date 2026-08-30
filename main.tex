@@ -55,9 +55,8 @@
   } \\
 }
 \newcommand{\cvrole}[3]{%
-  & \parbox[t]{0.88\textwidth}{%
+  #1 & \parbox[t]{0.88\textwidth}{%
     \textcolor{mainblue}{\scriptsize\faCircle}\hspace{0.55em}\textbf{#2}\\[-0.1em]
-    \hspace*{1.15em}{\footnotesize\color{gray}#1}\\[-0.1em]
     \hspace*{1.15em}\begin{minipage}[t]{0.845\textwidth}
       #3
     \end{minipage}
@@ -81,9 +80,9 @@
 
 \vspace{.5cm}
 
-I’m a software engineer with over \textbf{ten years of experience} building systems that address complex, real-world problems. I worked in the fields of \textbf{industrial software}, \textbf{videogames}, \textbf{real-time systems},  \textbf{formal verification}, and \textbf{autonomous vehicles}.
+I’m a software and machine learning engineer with over \textbf{ten years of experience} delivering systems across \textbf{industrial software}, \textbf{videogames}, \textbf{real-time systems}, \textbf{formal verification}, and \textbf{autonomous vehicles}.
 
-I’m currently based in \textbf{London}, working as a \textbf{Senior Machine Learning Engineer} at \textbf{Wayve}. I sit between model development and production inference, co-designing models and runtime architectures to run Wayve's driving models efficiently on resource-constrained accelerators. I work mainly in \textbf{C++}, \textbf{Rust}, and \textbf{Python}, and I’m particularly interested in problems where \textbf{performance}, \textbf{correctness}, and \textbf{practical constraints} come together.
+At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles. My work covers model and runtime co-design, heterogeneous accelerators, numerical validation, and latency optimisation. I work primarily in \textbf{C++}, \textbf{Rust}, and \textbf{Python}, with an emphasis on measurable performance, correctness, and production constraints.
 
 \vspace{.1cm}
 
@@ -91,20 +90,29 @@ I’m currently based in \textbf{London}, working as a \textbf{Senior Machine Le
 
 \begin{cv}
   \cvcompany{Wayve Ltd}{London, United Kingdom}
-  \cvrole{May 2026--Present}{Senior Machine Learning Engineer}{
-    I work in inference optimisation, between model training and inference. I co-design models and runtime architectures around hardware constraints, partition workloads across CPUs, GPUs, and NPUs, and develop execution strategies that process model components as soon as their sensor inputs become available. I optimise end-to-end latency, throughput, resource utilisation, and numerical fidelity. \textit{(C++, Rust, Python, accelerators)}.
+  \cvrole{2026--}{Senior Machine Learning Engineer}{
+    Co-design models and runtime architectures for real-time execution on resource-constrained automotive accelerators. Partition workloads across CPUs, GPUs, and NPUs; start model components as their sensor inputs become available; and maintain validation suites for numerical precision. Optimise end-to-end latency, throughput, and resource utilisation. \textit{(C++, Rust, Python)}.
   }
-  \cvrole{Dec 2022--May 2026}{Senior Software Engineer}{
-    I designed and built Wayve's real-time inference pipeline, initially independently and later as tech lead of a team of four. The platform powers every Wayve vehicle and its simulation environments, supports multiple inference frameworks and accelerators, and serves both real-world validation and production driving. Earlier, I built key on-board sensor, data-collection, upload, and vehicle-networking components. \textit{(ROS2, Linux, C++, Rust, Python)}.
+  \cvrole{2024--2026}{Tech Lead, Inference Performance}{
+    Led a team of four responsible for Wayve's on-board inference stack. Extended the platform across multiple inference frameworks and accelerators while supporting the same execution path in every vehicle and simulation environment. Owned latency, reliability, and technical delivery for the core inference component. \textit{(C++, Rust, Python)}.
   }
-  \cvitem{2016-2019}{Software Engineer -- Videogames}{34BigThings}{
-    I contributed to five major game titles, focusing on game infrastructure, AI, gameplay, and development tools. I worked on both single-player and online multiplayer games shipped on Steam, PS4, XboxOne, Switch, and mobile platforms. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
+  \cvrole{2022--2024}{Senior Software Engineer}{
+    Joined a seven-person team building Wayve's second-generation on-board platform and shipping it to its first two vehicles. Built the initial real-time inference pipeline; Lidar, GNSS, and microphone stacks; data collection and upload features; and the vehicles' internal software network. \textit{(ROS2, Linux, C++, Rust, Python)}.
   }
-  \cvitem{2015-2016}{Software Engineer -- Videogames, Simulation}{Maserati, Choralia}{
-    I led two freelance B2B projects: developing an educational game for mobile and browsers, and collaborating to create a 3D visualization tool for product presentation. \textit{(Unity3D, C\#, JavaScript)}.
+
+  \cvcompany{34BigThings}{Turin, Italy}
+  \cvrole{2016--2019}{Software Engineer -- Videogames}{
+    Shipped five single-player and online multiplayer titles across Steam, PS4, Xbox One, Nintendo Switch, and mobile. Developed game infrastructure, AI, gameplay systems, and production tools in Unity and Unreal Engine. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
   }
-  \cvitem{2013-2016}{Software Engineer -- Industrial Software}{R.O. srl}{
-    I contributed to a suite of software solutions for glass processing factories, focusing on order tracking and optimizing machine work, product waste, and logistics. During my third year, I managed a team of 4 junior engineers. \textit{(C, C++, C\#, SQL)}.
+
+  \cvcompany{Maserati / Choralia}{Turin, Italy}
+  \cvrole{2015--2016}{Software Engineer -- Games and Simulation}{
+    Delivered two B2B projects: a browser and mobile educational game, and a 3D product-visualisation tool. Led implementation and supervised an external artist. \textit{(Unity3D, C\#, JavaScript)}.
+  }
+
+  \cvcompany{R.O. srl}{}
+  \cvrole{2013--2016}{Software Engineer -- Industrial Software}{
+    Developed software for glass-processing factories covering order tracking, machine scheduling, waste reduction, and logistics. Managed four junior engineers during the third year. \textit{(C, C++, C\#, SQL)}.
   }
 \end{cv}
 
