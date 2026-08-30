@@ -41,15 +41,19 @@
 }
 
 \newenvironment{cv}{%
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \begin{tabular}{@{}l@{}}
 }{%
-  \end{tabular*}
+  \end{tabular}
 }
 \newcommand{\cvitem}[4]{%
-  \parbox[t]{0.105\textwidth}{\footnotesize\color{black!55} #1} & \parbox[t]{0.88\textwidth}{\textbf{#2} \hfill {\footnotesize#3}\\ #4 \vspace{\parsep}} \\
+  \parbox[t]{\textwidth}{%
+    \textbf{#2} \hfill {\footnotesize\color{gray}#3}\\[-0.1em]
+    {\footnotesize\color{black!55}#1}\\[-0.05em]
+    #4 \vspace{0.35em}%
+  } \\
 }
 \newcommand{\cvcompany}[2]{%
-  & \parbox[t]{0.88\textwidth}{%
+  \parbox[t]{\textwidth}{%
     {\large\color{mainblue}\textbf{#1}} \hfill {\footnotesize\color{gray}#2}%
     \vspace{0.45em}%
   } \\
@@ -58,24 +62,26 @@
   \tikz[remember picture,baseline=-0.45ex]{\node[circle,fill=mainblue,inner sep=0pt,minimum size=4pt] (#1) {};}%
 }
 \newcommand{\cvtimelinerole}[4]{%
-  \parbox[t]{0.105\textwidth}{\footnotesize\color{black!55} #2} & \parbox[t]{0.88\textwidth}{%
+  \parbox[t]{\textwidth}{%
     \cvtimelinedot{#1}\hspace{0.7em}\textbf{#3}\\[-0.1em]
-    \hspace*{1.15em}\begin{minipage}[t]{0.845\textwidth}
+    \hspace*{1.15em}\begin{minipage}[t]{0.965\textwidth}
+      {\footnotesize\color{black!55}#2}\\[-0.05em]
       #4
     \end{minipage}
     \vspace{0.65em}%
   } \\
 }
 \newcommand{\cvrole}[3]{%
-  \parbox[t]{0.105\textwidth}{\footnotesize\color{black!55} #1} & \parbox[t]{0.88\textwidth}{%
+  \parbox[t]{\textwidth}{%
     \textbf{#2}\\[-0.1em]
+    {\footnotesize\color{black!55}#1}\\[-0.05em]
     #3
     \vspace{0.65em}%
   } \\
 }
 \newcommand{\cvcompanyend}{\noalign{\vskip 0.65em}}
 \newcommand{\daterange}[2]{%
-  #1\\[-0.15em]\hspace*{0.8em}\textcolor{black!55}{\scriptsize\faArrowRight}\hspace{0.35em}#2%
+  #1\hspace{0.4em}\textcolor{black!55}{\scriptsize\faArrowRight}\hspace{0.4em}#2%
 }
 
 % Custom yellow star
@@ -164,14 +170,14 @@ At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles
   \cvitem{2025}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
     \textit{\yellowstar \small  Journal publication in Transactions of Graphics. Selected for CAF trailer.}
     \\We introduced Claycodes, a new type of visual code that breaks free from traditional rigid grids like QR codes. Claycodes encode data as a tree structure and allow full customizability and deformation, with real-time scanning capabilities.	
-    \scriptsize (\url{https://arxiv.org/abs/2505.08666})\normalfont.
+    \par\mbox{\scriptsize(\url{https://arxiv.org/abs/2505.08666})}\normalfont.
   }
   \cvitem{2022}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
-    We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \scriptsize (\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})\normalfont.
+    We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \par\mbox{\scriptsize(\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})}\normalfont.
   }
   \cvitem{2021}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
     \textit{\yellowstar\small Outstanding Paper Award.}
-    \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \scriptsize (\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})\normalfont.
+    \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \par\mbox{\scriptsize(\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})}\normalfont.
   }
 \end{cv}
 
