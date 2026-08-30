@@ -16,6 +16,14 @@
 \definecolor{maingray}{HTML}{0E5484}
 \definecolor{gray}{HTML}{4D4D4D}
 
+% Blue, underlined hyperlinks without annotation boxes
+\hypersetup{
+  colorlinks=false,
+  pdfborderstyle={/S/U/W 0.8},
+  urlbordercolor=mainblue
+}
+\renewcommand{\UrlFont}{\color{mainblue}\ttfamily}
+
 % Formatting
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -41,12 +49,51 @@
 }
 
 \newenvironment{cv}{%
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \begin{tabular}{@{}l@{}}
 }{%
-  \end{tabular*}
+  \end{tabular}
+}
+\newcommand{\cvbody}[1]{%
+  \hspace*{2.4em}\begin{minipage}[t]{\dimexpr\textwidth-4.8em\relax}
+    #1
+  \end{minipage}%
 }
 \newcommand{\cvitem}[4]{%
-  #1 & \parbox[t]{0.88\textwidth}{\textbf{#2} \hfill {\footnotesize#3}\\ #4 \vspace{\parsep}} \\
+  \parbox[t]{\textwidth}{%
+    \textbf{#2}\if\relax\detokenize{#1}\relax\else\hspace{0.8em}{\footnotesize\color{black!55}#1}\fi%
+    \hfill{\footnotesize\color{gray}#3}\\[-0.1em]
+    \cvbody{#4}\vspace{0.35em}%
+  } \\
+}
+\newcommand{\cvcompany}[2]{%
+  \parbox[t]{\textwidth}{%
+    {\large\color{mainblue}\textbf{#1}} \hfill {\footnotesize\color{gray}#2}%
+    \vspace{0.45em}%
+  } \\
+}
+\newcommand{\cvtimelinedot}[1]{%
+  \tikz[remember picture,baseline=-0.45ex]{\node[circle,fill=mainblue,inner sep=0pt,minimum size=4pt] (#1) {};}%
+}
+\newcommand{\cvroletext}[1]{%
+  {\linespread{1.06}\selectfont #1\par}%
+}
+\newcommand{\cvtimelinerole}[4]{%
+  \parbox[t]{\textwidth}{%
+    \cvtimelinedot{#1}\hspace{0.7em}\textbf{#3}\hspace{0.8em}{\footnotesize\color{black!55}#2}\\[-0.1em]
+    \cvbody{\cvroletext{#4}}
+    \vspace{0.65em}%
+  } \\
+}
+\newcommand{\cvrole}[3]{%
+  \parbox[t]{\textwidth}{%
+    \textbf{#2}\hspace{0.8em}{\footnotesize\color{black!55}#1}\\[-0.1em]
+    \cvbody{\cvroletext{#3}}
+    \vspace{0.65em}%
+  } \\
+}
+\newcommand{\cvcompanyend}{\noalign{\vskip 0.65em}}
+\newcommand{\daterange}[2]{%
+  #1\hspace{0.4em}\textcolor{black!55}{\scriptsize\faArrowRight}\hspace{0.4em}#2%
 }
 
 % Custom yellow star
@@ -57,51 +104,74 @@
 % Profile Header
 \begin{minipage}[t]{0.7\linewidth}
   {\Huge\color{mainblue}Marco Maida}\\
-  {\Large\color{black!80}Tech Lead, Inference Performance}\\
+  {\Large\color{black!80}Senior Machine Learning Engineer}\\
   \vspace{4pt}
-  \faGlobe~\href{https://www.maida.me}{\texttt{maida.me}} \quad
-  \faEnvelope~\href{mailto:mmmaidacs@gmail.com}{\texttt{mmmaidacs@gmail.com}}
+  \faGlobe~\href{https://www.maida.me}{\textcolor{mainblue}{\texttt{maida.me}}} \quad
+  \faEnvelope~\href{mailto:mmmaidacs@gmail.com}{\textcolor{mainblue}{\texttt{mmmaidacs@gmail.com}}}
 \end{minipage}
 
 \vspace{.5cm}
 
-I’m a software engineer with over \textbf{ten years of experience} building systems that address complex, real-world problems. I worked in the fields of \textbf{industrial software}, \textbf{videogames}, \textbf{real-time systems},  \textbf{formal verification}, and \textbf{autonomous vehicles}.
+I’m a software and machine learning engineer with over \textbf{ten years of experience} delivering systems across \textbf{industrial software}, \textbf{videogames}, \textbf{real-time systems}, \textbf{formal verification}, and \textbf{autonomous vehicles}.
 
-I’m currently based in \textbf{London}, where I lead the inference performance team at \textbf{Wayve}. We focus on improving the latency and reliability of Wayve’s self-driving stack. I work mainly in \textbf{C++}, \textbf{Rust}, and \textbf{Python}, and I’m particularly interested in problems where \textbf{performance}, \textbf{correctness}, and \textbf{practical constraints} come together.
+\vspace{0.5em}
+
+At \textbf{Wayve}, I develop real-time inference systems for autonomous vehicles. My work covers model and runtime co-design, heterogeneous accelerators, numerical validation, and latency optimisation. I work primarily in \textbf{C++}, \textbf{Rust}, and \textbf{Python}, with an emphasis on measurable performance, correctness, and production constraints.
 
 \vspace{.1cm}
 
 \section{Professional Experience}
 
 \begin{cv}
-  \cvitem{Since 2022}{Software Engineer -- Autonomous Vehicles}{Wayve Ltd}{
-    I designed, implemented, and maintained several key systems within Wayve's on-board software stack for autonomous vehicles. This includes sensor data collection, alignment, packaging, data upload, and real-time neural network inference. 
-    Since December 2024, I have been serving as the \textbf{Tech Lead} of the inference performance team, responsible for the core inference component. \textit{(ROS2, Linux Kernel, C++, Rust, Python)}.
+  \cvcompany{Wayve Ltd}{London, United Kingdom}
+  \cvtimelinerole{wayve-role-1}{\daterange{May 2026}{Present}}{Senior Machine Learning Engineer}{
+    Co-design models and runtime architectures for real-time execution on resource-constrained automotive accelerators. Partition workloads across CPUs, GPUs, and NPUs; start model components as their sensor inputs become available; and maintain validation suites for numerical precision. Optimise end-to-end latency, throughput, and resource utilisation. \textit{(C++, Python)}.
   }
-  \cvitem{2016-2019}{Software Engineer -- Videogames}{34BigThings}{
-    I contributed to five major game titles, focusing on game infrastructure, AI, gameplay, and development tools. I worked on both single-player and online multiplayer games shipped on Steam, PS4, XboxOne, Switch, and mobile platforms. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
+  \cvtimelinerole{wayve-role-2}{\daterange{Dec 2024}{May 2026}}{Tech Lead, Inference Performance}{
+    Led a team of four responsible for Wayve's on-board inference stack. Extended the platform across multiple inference frameworks and accelerators while supporting the same execution path in every vehicle and simulation environment. Owned latency, reliability, and technical delivery for the core inference component. \textit{(C++, Rust, Python)}.
   }
-  \cvitem{2015-2016}{Software Engineer -- Videogames, Simulation}{Maserati, Choralia}{
-    I led two freelance B2B projects: developing an educational game for mobile and browsers, and collaborating to create a 3D visualization tool for product presentation. \textit{(Unity3D, C\#, JavaScript)}.
+  \cvtimelinerole{wayve-role-3}{\daterange{Dec 2022}{Dec 2024}}{Senior Software Engineer}{
+    Joined a seven-person team building Wayve's second-generation on-board platform and shipping it to its first two vehicles. Built the initial real-time inference pipeline; Lidar, GNSS, and microphone stacks; data collection and upload features; and the vehicles' internal software network. \textit{(ROS2, Linux, C++, Rust, Python)}.
   }
-  \cvitem{2013-2016}{Software Engineer -- Industrial Software}{R.O. srl}{
-    I contributed to a suite of software solutions for glass processing factories, focusing on order tracking and optimizing machine work, product waste, and logistics. During my third year, I managed a team of 4 junior engineers. \textit{(C, C++, C\#, SQL)}.
-  }
-\end{cv}
+  \cvcompanyend
 
+  \cvcompany{34BigThings}{Turin, Italy}
+  \cvrole{\daterange{Aug 2016}{Sep 2019}}{Software Engineer -- Videogames}{
+    Shipped five single-player and online multiplayer titles across Steam, PS4, Xbox One, Nintendo Switch, and mobile. Developed game infrastructure, AI, gameplay systems, and production tools in Unity and Unreal Engine. \textit{(Unity3D, C\#, Unreal Engine, C++)}.
+  }
+  \cvcompanyend
+
+  \cvcompany{Maserati / Choralia}{Turin, Italy}
+  \cvrole{\daterange{Sep 2016}{May 2017}}{Software Engineer (Contractor) -- Games and Simulation}{
+    Delivered two B2B projects: a browser and mobile educational game, and a 3D product-visualisation tool. Led implementation and supervised an external artist. \textit{(Unity3D, C\#, JavaScript)}.
+  }
+  \cvcompanyend
+
+  \cvcompany{R.O. srl}{Turin, Italy}
+  \cvrole{\daterange{Jun 2013}{Aug 2016}}{Software Engineer -- Industrial Software}{
+    Developed software for glass-processing factories covering order tracking, machine scheduling, waste reduction, and logistics. Managed four junior engineers during the third year. \textit{(C, C++, C\#, SQL)}.
+  }
+  \cvcompanyend
+\end{cv}
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[black!35,line width=0.5pt]
+    (wayve-role-1.center) -- (wayve-role-2.center) -- (wayve-role-3.center);
+\end{tikzpicture}
+
+\newpage
 \section{Education and Research}
 
 \begin{cv}
-  \cvitem{2022}{Research Internship}{Bloomberg LP}{
+  \cvitem{\daterange{Jun 2022}{Aug 2022}}{Research Internship}{Bloomberg LP}{
     I worked on accelerating SAT solving using GPUs. \textit{(C++, CUDA)}.
   }
-  \cvitem{2019-2022}{PhD Student}{Max Planck Institute}{
+  \cvitem{\daterange{Sep 2019}{Oct 2022}}{PhD Student}{Max Planck Institute}{
     My research focused on formal verification and real-time systems, specifically verifying the timeliness of software systems. I published three papers and mentored three interns. \textit{(COQ, C, Rust)}.
   }
-  \cvitem{2019-2022}{Master's in Computer Science}{Technische Universität Kaiserslautern}{
+  \cvitem{\daterange{Nov 2019}{Jul 2022}}{Master's in Computer Science}{Technische Universität Kaiserslautern}{
     I specialized in real-time systems as part of a joint master's and PhD program.
   }
-  \cvitem{2016-2019}{Bachelor's in Computer Science}{Università degli Studi di Torino}{
+  \cvitem{\daterange{Sep 2016}{Jun 2019}}{Bachelor's in Computer Science}{Università degli Studi di Torino}{
     I specialized in computability and formal methods.
   }
 \end{cv}
@@ -109,28 +179,27 @@ I’m currently based in \textbf{London}, where I lead the inference performance
 \subsection{Selected Publications}
 
 \begin{cv}
-  \cvitem{2025}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
+  \cvitem{}{Claycode: Stylable and Deformable 2D Scannable Codes}{SIGGRAPH 2025}{
     \textit{\yellowstar \small  Journal publication in Transactions of Graphics. Selected for CAF trailer.}
     \\We introduced Claycodes, a new type of visual code that breaks free from traditional rigid grids like QR codes. Claycodes encode data as a tree structure and allow full customizability and deformation, with real-time scanning capabilities.	
-    \scriptsize (\url{https://arxiv.org/abs/2505.08666})\normalfont.
+    \par\mbox{\scriptsize(\url{https://arxiv.org/abs/2505.08666})}\normalfont.
   }
-  \cvitem{2022}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
-    We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \scriptsize (\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})\normalfont.
+  \cvitem{}{From Intuition to Coq: A Case Study in Verified Response-Time Analysis, FIFO Scheduling}{RTSS 2022}{
+    We developed a formally verified response-time analysis for FIFO schedulers, challenging traditional pen-and-paper methods. \par\mbox{\scriptsize(\url{https://people.mpi-sws.org/~kbedarka/rtss22.pdf})}\normalfont.
   }
-  \cvitem{2021}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
+  \cvitem{}{Foundational Response-Time Analysis as Explainable Evidence of Timeliness}{ECRTS 2022}{
     \textit{\yellowstar\small Outstanding Paper Award.}
-    \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \scriptsize (\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})\normalfont.
+    \\I developed POET, a tool for formally verified worst-case scenario timing analysis. \par\mbox{\scriptsize(\url{https://drops.dagstuhl.de/opus/volltexte/2022/16336/pdf/LIPIcs-ECRTS-2022-19.pdf})}\normalfont.
   }
 \end{cv}
 
-\vspace{100pt}
 \section{Selected Open-Source Projects}
 
 \begin{cv}
   \cvitem{2025}{Claycode}{\url{https://claycode.io}}{
     Inventor and lead contributor. Claycode includes a generator website, an Android scanner app, and a large amount of research code. 
   }
-  \cvitem{2020-2022}{PROSA}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/rt-proofs}}{
+  \cvitem{\daterange{2020}{2022}}{PROSA}{\url{https://gitlab.mpi-sws.org/RT-PROOFS/rt-proofs}}{
     Main contributor to PROSA, one of the leading formally-verified frameworks in the real-time systems community.
   }
   \cvitem{2022}{Treecode}{\url{www.maida.me/treecode}}{
